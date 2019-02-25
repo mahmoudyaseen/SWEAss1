@@ -9,7 +9,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Newtonsoft.Json;//"Project" -> "Manage NuGet packages" -> "Search for "newtonsoft json". -> click "install".
-
+using System.Net.Http;
+using System.Net;
+using System.Collections.Specialized;
 namespace WindowsFormsApp1
 {
     public partial class FirstCustomerControl : UserControl
@@ -19,8 +21,41 @@ namespace WindowsFormsApp1
         public FirstCustomerControl()
         {
             InitializeComponent();
+            Post();
+            delete();
 
         }
+        public void Post()
+        {
+            using (var wb = new WebClient())
+            {
+                var data = new NameValueCollection();
+                data["username"] = "myUser";
+                data["password"] = "myPassword";
+
+                var response = wb.UploadValues("https://reqres.in/api/users", "POST", data);
+                string responseInString = Encoding.UTF8.GetString(response);
+                Console.WriteLine(responseInString);
+            }
+
+        }
+
+        public void delete()
+        {
+            string sURL = "https://reqres.in/api/users/2";
+
+            WebRequest request = WebRequest.Create(sURL);
+            request.Method = "DELETE";
+
+            HttpWebResponse response = (HttpWebResponse)request.GetResponse();
+            Console.WriteLine(response);
+
+        }
+
+
+
+
+
         string ConvertString(string s , int max)
         {
             string snew = "";
