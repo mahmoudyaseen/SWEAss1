@@ -1,0 +1,10 @@
+how to use : how to run : you can run from \WindowsFormsApp1\bin\Debug\WindowsFormsApp1.exe
+click on omdb and write name of movie,anime ... and you will see information about it you can click on franch to translate story to france
+click on weather bit and write the name of city you want to see the weather in it
+
+
+
+
+
+
+repo link: https://github.com/mahmoudyaseen/SWEAss1.git
