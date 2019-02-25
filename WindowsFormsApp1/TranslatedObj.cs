@@ -8,6 +8,9 @@ namespace WindowsFormsApp1
 {
     class TranslatedObj
     {
-        
+        public class root
+        {
+            public List<string> text { get; set; }
+        }
     }
 }
