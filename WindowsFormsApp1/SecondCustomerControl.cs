@@ -49,6 +49,19 @@ namespace WindowsFormsApp1
                     MAXTemp3.Text = oMycustomclassname2.data.ElementAt(2).max_temp + "\u00B0C";
                     MINTemp3.Text = oMycustomclassname2.data.ElementAt(2).min_temp + "\u00B0C";
 		
+		    string url3 = string.Format("https://api.weatherbit.io/v2.0/forecast/3hourly?key=d254147c15ba46b48bc8e608389ca984&days=1&city=" + textBox1.Text);
+                    var Json3 = web.DownloadString(url3);
+                    Day3Hours.root oMycustomclassname3 = Newtonsoft.Json.JsonConvert.DeserializeObject<Day3Hours.root>(Json2);
+
+                    label0012.Text = oMycustomclassname3.data.ElementAt(0).temp + "\u00B0C";
+                    label0003.Text = oMycustomclassname3.data.ElementAt(1).temp + "\u00B0C";
+                    label0006.Text = oMycustomclassname3.data.ElementAt(2).temp + "\u00B0C";
+                    label0009.Text = oMycustomclassname3.data.ElementAt(3).temp + "\u00B0C";
+                    label0012P.Text = oMycustomclassname3.data.ElementAt(4).temp + "\u00B0C";
+                    label0003P.Text = oMycustomclassname3.data.ElementAt(5).temp + "\u00B0C";
+                    label0006p.Text = oMycustomclassname3.data.ElementAt(6).temp + "\u00B0C";
+                    label0009p.Text = oMycustomclassname3.data.ElementAt(7).temp + "\u00B0C";
+
                 }
             }
             catch
